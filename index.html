@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KONBUD — Plataforma de cotizacion para constructoras</title>
+  <meta name="description" content="KONBUD automatiza el proceso de cotizacion de materiales de construccion. Conectamos constructoras con proveedores de forma rapida, trazable y eficiente." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="KONBUD" />
+    </a>
+    <div class="nav-links">
+      <a href="#que-hacemos">Que hacemos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contacto">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="mailto:info@konbud.net" class="btn-nav">Contactar</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Plataforma B2B para construccion</div>
+    <h1>Cotiza materiales de construccion <span>en minutos,</span> no en dias</h1>
+    <p>
+      KONBUD automatiza el proceso de solicitud de cotizacion a proveedores de materiales.
+      Menos tiempo en correos, mas tiempo construyendo.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:info@konbud.net" class="btn-primary">Solicitar demo</a>
+      <a href="#como-funciona" class="btn-secondary">Como funciona</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="que-hacemos">
+    <div class="section-header">
+      <div class="section-label">Que hacemos</div>
+      <h2 class="section-title">Todo el proceso de cotizacion en una plataforma</h2>
+      <p class="section-sub">Desde el presupuesto hasta la respuesta del proveedor, sin hojas de calculo ni correos manuales.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128220;</div>
+        <h3>Importacion de presupuesto</h3>
+        <p>Carga tu presupuesto desde Excel. KONBUD organiza automaticamente los insumos y materiales por partida.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128179;</div>
+        <h3>Solicitud automatica a proveedores</h3>
+        <p>Con un clic enviamos solicitudes de cotizacion por correo electronico a los proveedores seleccionados para cada material.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128200;</div>
+        <h3>Comparacion de ofertas</h3>
+        <p>Las respuestas de los proveedores se consolidan automaticamente. Compara precios, plazos y condiciones en un solo lugar.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128101;</div>
+        <h3>Red de proveedores</h3>
+        <p>Gestiona tu base de proveedores por categoria de material. Agrega nuevos contactos y mantiene el historial de cotizaciones.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9993;</div>
+        <h3>Comunicacion trazable</h3>
+        <p>Cada solicitud y respuesta queda registrada. Nunca pierdas el hilo de una negociacion con un proveedor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>Reportes y seguimiento</h3>
+        <p>Visualiza el estado de cada cotizacion en tiempo real: pendiente, respondida, adjudicada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="como-funciona">
+    <div class="section-header">
+      <div class="section-label">Como funciona</div>
+      <h2 class="section-title">Tres pasos para cotizar cualquier obra</h2>
+      <p class="section-sub">Un flujo simple y automatizado que elimina el trabajo manual del director de obra.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Carga tu presupuesto</h3>
+          <p>Sube el Excel de tu obra. KONBUD identifica los insumos, agrupa materiales por partida y calcula cantidades totales.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Selecciona insumos y proveedores</h3>
+          <p>Elige que insumos cotizar y a que proveedores enviar la solicitud. Puedes usar tu base de proveedores o agregar nuevos.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Recibe y compara ofertas</h3>
+          <p>Los proveedores responden por correo. KONBUD consolida las respuestas y te muestra la comparacion de precios automaticamente.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Adjudica y cierra</h3>
+          <p>Selecciona la mejor oferta por insumo. Toda la trazabilidad queda guardada en la plataforma para auditorias o revisiones futuras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL INFO (importante para SendGrid) -->
+  <section class="email-info">
+    <div class="section-header">
+      <div class="section-label">Sobre nuestros correos electronicos</div>
+      <h2 class="section-title">Por que puedes recibir un correo de KONBUD</h2>
+    </div>
+    <div class="email-box">
+      <h3>Solicitudes de cotizacion B2B</h3>
+      <p>
+        Si recibes un correo desde <strong>konbud.net</strong>, es porque una constructora cliente de nuestra plataforma
+        te esta solicitando una cotizacion de materiales de construccion para un proyecto especifico.
+      </p>
+      <p>
+        <strong>Estos correos son transaccionales y de caracter comercial B2B.</strong> No son publicidad masiva
+        ni marketing no solicitado: cada solicitud corresponde a un insumo real de un proyecto en curso.
+      </p>
+      <p>
+        Si no deseas recibir solicitudes de cotizacion, puedes responder el correo indicandolo o escribirnos
+        directamente a <strong>info@konbud.net</strong> y te removemos de inmediato.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto">
+    <div class="section-header">
+      <div class="section-label">Contacto</div>
+      <h2 class="section-title">Hablemos</h2>
+      <p class="section-sub">Si eres una constructora y quieres conocer KONBUD, o si tienes alguna consulta sobre nuestros correos, escribenos.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="label">Correo</span>
+        <a href="mailto:info@konbud.net" class="value">info@konbud.net</a>
+        <span class="sub">Respuesta en menos de 24 horas</span>
+      </div>
+      <div class="contact-card">
+        <span class="label">Servicio</span>
+        <span class="value">Plataforma SaaS</span>
+        <span class="sub">Para constructoras y directores de obra</span>
+      </div>
+      <div class="contact-card">
+        <span class="label">Mercado</span>
+        <span class="value">Colombia</span>
+        <span class="sub">Expansion a Latinoamerica en curso</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="logo.png" alt="KONBUD" />
+    </div>
+    <div class="footer-links">
+      <a href="#que-hacemos">Que hacemos</a>
+      <a href="privacidad.html">Politica de privacidad</a>
+      <a href="mailto:info@konbud.net">Contacto</a>
+    </div>
+    <span class="footer-copy">&copy; 2025 KONBUD. Todos los derechos reservados.</span>
+  </footer>
+
+</body>
+</html>
