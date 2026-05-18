@@ -148,12 +148,85 @@ function initScrollHint() {
   });
 }
 
+// ─── COUNTERS & BARS ─────────────────────────────────────────────────────────
+
+function initROI() {
+  // Animated number counters
+  document.querySelectorAll('.kpi-num').forEach((el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const obj    = { val: 0 };
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter() {
+        gsap.to(obj, {
+          val: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate() { el.textContent = Math.round(obj.val); },
+        });
+      },
+    });
+  });
+
+  // Animated KPI progress bars
+  document.querySelectorAll('.kpi-bar-fill').forEach((bar) => {
+    ScrollTrigger.create({
+      trigger: bar,
+      start: 'top 88%',
+      once: true,
+      onEnter() { bar.classList.add('animated'); },
+    });
+  });
+
+  // Before/After bars scale from bottom
+  ScrollTrigger.create({
+    trigger: '.before-after',
+    start: 'top 80%',
+    once: true,
+    onEnter() {
+      gsap.from('.before-bar', {
+        scaleY: 0,
+        transformOrigin: 'bottom',
+        duration: 1,
+        ease: 'power3.out',
+      });
+      gsap.from('.after-bar', {
+        scaleY: 0,
+        transformOrigin: 'bottom',
+        duration: 0.7,
+        delay: 0.4,
+        ease: 'power3.out',
+      });
+      gsap.from('.ba-arrow', { autoAlpha: 0, x: -10, duration: 0.5, delay: 0.6 });
+    },
+  });
+
+  // ROI section text
+  gsap.from('.roi-intro > *', {
+    autoAlpha: 0,
+    y: 18,
+    stagger: 0.1,
+    duration: 0.7,
+    scrollTrigger: { trigger: '.roi-intro', start: 'top 86%', once: true },
+  });
+
+  gsap.from('.roi-cta', {
+    autoAlpha: 0,
+    y: 16,
+    duration: 0.6,
+    scrollTrigger: { trigger: '.roi-cta', start: 'top 88%', once: true },
+  });
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 
 const mm = gsap.matchMedia();
 
 mm.add('(prefers-reduced-motion: no-preference)', () => {
   initHero();
+  initROI();
   initFeatures();
   initLED();
   initReveals();
