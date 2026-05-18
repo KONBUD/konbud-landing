@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KONBUD — Plataforma de cotizacion para constructoras</title>
-  <meta name="description" content="KONBUD automatiza el proceso de cotizacion de materiales de construccion. Conectamos constructoras con proveedores de forma rapida, trazable y eficiente." />
+  <title>KONBUD — Plataforma de cotización para constructoras</title>
+  <meta name="description" content="KONBUD automatiza el proceso de cotización de materiales de construcción. Conectamos constructoras con proveedores de forma rápida, trazable y eficiente." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,14 +12,19 @@
 </head>
 <body>
 
+  <!-- Background -->
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
   <!-- NAV -->
-  <nav>
-    <a href="/" class="logo">
+  <nav id="nav" role="navigation" aria-label="Principal">
+    <a href="/" class="logo" aria-label="KONBUD inicio">
       <img src="logo.png" alt="KONBUD" />
     </a>
     <div class="nav-links">
-      <a href="#que-hacemos">Que hacemos</a>
-      <a href="#como-funciona">Como funciona</a>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#como-funciona">Cómo funciona</a>
       <a href="#contacto">Contacto</a>
       <a href="privacidad.html">Privacidad</a>
       <a href="mailto:info@konbud.net" class="btn-nav">Contactar</a>
@@ -27,144 +32,244 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">Plataforma B2B para construccion</div>
-    <h1>Cotiza materiales de construccion <span>en minutos,</span> no en dias</h1>
-    <p>
-      KONBUD automatiza el proceso de solicitud de cotizacion a proveedores de materiales.
-      Menos tiempo en correos, mas tiempo construyendo.
-    </p>
-    <div class="hero-cta">
-      <a href="mailto:info@konbud.net" class="btn-primary">Solicitar demo</a>
-      <a href="#como-funciona" class="btn-secondary">Como funciona</a>
+  <section class="hero" aria-label="Inicio">
+    <div class="hero-inner">
+      <img src="logo.png" alt="KONBUD" class="hero-logo" />
+      <div class="hero-badge">Plataforma B2B · Sector construcción</div>
+      <h1 class="hero-title">
+        Cotiza materiales<br />
+        <span>en minutos,</span> no en días
+      </h1>
+      <p class="hero-sub">
+        KONBUD automatiza la solicitud de cotización a proveedores de materiales.
+        Menos tiempo en correos, más tiempo construyendo.
+      </p>
+      <div class="hero-cta">
+        <a href="mailto:info@konbud.net" class="btn-primary">Solicitar demo</a>
+        <a href="#como-funciona" class="btn-secondary">Cómo funciona</a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="features" id="que-hacemos">
-    <div class="section-header">
-      <div class="section-label">Que hacemos</div>
-      <h2 class="section-title">Todo el proceso de cotizacion en una plataforma</h2>
-      <p class="section-sub">Desde el presupuesto hasta la respuesta del proveedor, sin hojas de calculo ni correos manuales.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">&#128220;</div>
-        <h3>Importacion de presupuesto</h3>
-        <p>Carga tu presupuesto desde Excel. KONBUD organiza automaticamente los insumos y materiales por partida.</p>
+  <section class="features" id="que-hacemos" aria-label="Qué hacemos">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Qué hacemos</div>
+        <h2 class="section-title">Todo el proceso en una plataforma</h2>
+        <p class="section-sub">
+          Desde el presupuesto hasta la respuesta del proveedor,
+          sin hojas de cálculo ni correos manuales.
+        </p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128179;</div>
-        <h3>Solicitud automatica a proveedores</h3>
-        <p>Con un clic enviamos solicitudes de cotizacion por correo electronico a los proveedores seleccionados para cada material.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128200;</div>
-        <h3>Comparacion de ofertas</h3>
-        <p>Las respuestas de los proveedores se consolidan automaticamente. Compara precios, plazos y condiciones en un solo lugar.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128101;</div>
-        <h3>Red de proveedores</h3>
-        <p>Gestiona tu base de proveedores por categoria de material. Agrega nuevos contactos y mantiene el historial de cotizaciones.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#9993;</div>
-        <h3>Comunicacion trazable</h3>
-        <p>Cada solicitud y respuesta queda registrada. Nunca pierdas el hilo de una negociacion con un proveedor.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#128196;</div>
-        <h3>Reportes y seguimiento</h3>
-        <p>Visualiza el estado de cada cotizacion en tiempo real: pendiente, respondida, adjudicada.</p>
+
+      <div class="features-grid">
+
+        <!-- 1 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="12" y1="18" x2="12" y2="12"/>
+              <polyline points="9 15 12 12 15 15"/>
+            </svg>
+          </div>
+          <h3>Importación de presupuesto</h3>
+          <p>Carga tu presupuesto desde Excel. KONBUD organiza los insumos y materiales por partida automáticamente.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3>Solicitud automática</h3>
+          <p>Con un clic enviamos solicitudes de cotización por correo a los proveedores seleccionados para cada material.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <h3>Comparación de ofertas</h3>
+          <p>Las respuestas de proveedores se consolidan automáticamente. Compara precios y condiciones en un solo lugar.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Red de proveedores</h3>
+          <p>Gestiona tu base de proveedores por categoría de material y mantén el historial de cotizaciones de cada obra.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3>Comunicación trazable</h3>
+          <p>Cada solicitud y respuesta queda registrada. Nunca pierdas el hilo de una negociación con un proveedor.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="2" ry="2"/>
+              <line x1="9" y1="12" x2="15" y2="12"/>
+              <line x1="9" y1="16" x2="12" y2="16"/>
+            </svg>
+          </div>
+          <h3>Seguimiento en tiempo real</h3>
+          <p>Visualiza el estado de cada cotización: pendiente, respondida o adjudicada. Sin depender del correo.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="como-funciona">
-    <div class="section-header">
-      <div class="section-label">Como funciona</div>
-      <h2 class="section-title">Tres pasos para cotizar cualquier obra</h2>
-      <p class="section-sub">Un flujo simple y automatizado que elimina el trabajo manual del director de obra.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
+  <section class="how-it-works" id="como-funciona" aria-label="Cómo funciona">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Cómo funciona</div>
+        <h2 class="section-title">Cuatro pasos para cotizar cualquier obra</h2>
+        <p class="section-sub">
+          Un flujo simple y automatizado que elimina el trabajo manual del director de obra.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <svg class="step-svg" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <path class="led-path"
+              d="M36 52V24M24 36L36 24L48 36M16 58H56"
+              stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="step-num">1</div>
           <h3>Carga tu presupuesto</h3>
           <p>Sube el Excel de tu obra. KONBUD identifica los insumos, agrupa materiales por partida y calcula cantidades totales.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <svg class="step-svg" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <path class="led-path"
+              d="M14 22H58M14 36H58M14 50H42M50 44L55 50L64 38"
+              stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="step-num">2</div>
           <h3>Selecciona insumos y proveedores</h3>
-          <p>Elige que insumos cotizar y a que proveedores enviar la solicitud. Puedes usar tu base de proveedores o agregar nuevos.</p>
+          <p>Elige qué insumos cotizar y a qué proveedores enviar la solicitud. Usa tu base existente o agrega nuevos contactos.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <svg class="step-svg" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <path class="led-path"
+              d="M12 20H60V52H12ZM12 20L36 40L60 20"
+              stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="step-num">3</div>
           <h3>Recibe y compara ofertas</h3>
-          <p>Los proveedores responden por correo. KONBUD consolida las respuestas y te muestra la comparacion de precios automaticamente.</p>
+          <p>Los proveedores responden por correo. KONBUD consolida las respuestas y muestra la comparación de precios automáticamente.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-content">
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <svg class="step-svg" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <path class="led-path"
+              d="M36 10L41.5 26.5H59L45 36L50.5 52.5L36 44L21.5 52.5L27 36L13 26.5H30.5Z"
+              stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="step-num">4</div>
           <h3>Adjudica y cierra</h3>
-          <p>Selecciona la mejor oferta por insumo. Toda la trazabilidad queda guardada en la plataforma para auditorias o revisiones futuras.</p>
+          <p>Selecciona la mejor oferta por insumo. Toda la trazabilidad queda registrada para auditorías o revisiones futuras.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- EMAIL INFO (importante para SendGrid) -->
-  <section class="email-info">
-    <div class="section-header">
-      <div class="section-label">Sobre nuestros correos electronicos</div>
-      <h2 class="section-title">Por que puedes recibir un correo de KONBUD</h2>
-    </div>
-    <div class="email-box">
-      <h3>Solicitudes de cotizacion B2B</h3>
-      <p>
-        Si recibes un correo desde <strong>konbud.net</strong>, es porque una constructora cliente de nuestra plataforma
-        te esta solicitando una cotizacion de materiales de construccion para un proyecto especifico.
-      </p>
-      <p>
-        <strong>Estos correos son transaccionales y de caracter comercial B2B.</strong> No son publicidad masiva
-        ni marketing no solicitado: cada solicitud corresponde a un insumo real de un proyecto en curso.
-      </p>
-      <p>
-        Si no deseas recibir solicitudes de cotizacion, puedes responder el correo indicandolo o escribirnos
-        directamente a <strong>info@konbud.net</strong> y te removemos de inmediato.
-      </p>
+  <!-- EMAIL INFO -->
+  <section class="email-info" aria-label="Sobre nuestros correos">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Transparencia</div>
+        <h2 class="section-title">Por qué puedes recibir un correo de KONBUD</h2>
+      </div>
+      <div class="email-box">
+        <h3>Solicitudes de cotización B2B</h3>
+        <p>
+          Si recibes un correo desde <strong>konbud.net</strong>, es porque una constructora cliente
+          de nuestra plataforma te está solicitando una cotización de materiales para un proyecto específico.
+        </p>
+        <p>
+          <strong>Estos correos son transaccionales y de carácter comercial B2B.</strong> No son publicidad
+          masiva ni marketing no solicitado: cada solicitud corresponde a un insumo real de un proyecto en curso
+          y está dirigida a un contacto de negocio conocido.
+        </p>
+        <p>
+          Si no deseas recibir solicitudes de cotización, responde el correo indicándolo o escríbenos
+          a <strong>info@konbud.net</strong> y te removemos de inmediato.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contacto">
-    <div class="section-header">
-      <div class="section-label">Contacto</div>
-      <h2 class="section-title">Hablemos</h2>
-      <p class="section-sub">Si eres una constructora y quieres conocer KONBUD, o si tienes alguna consulta sobre nuestros correos, escribenos.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <span class="label">Correo</span>
-        <a href="mailto:info@konbud.net" class="value">info@konbud.net</a>
-        <span class="sub">Respuesta en menos de 24 horas</span>
+  <section id="contacto" aria-label="Contacto">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Contacto</div>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-sub">
+          Si eres una constructora y quieres conocer KONBUD, o tienes alguna consulta, escríbenos.
+        </p>
       </div>
-      <div class="contact-card">
-        <span class="label">Servicio</span>
-        <span class="value">Plataforma SaaS</span>
-        <span class="sub">Para constructoras y directores de obra</span>
-      </div>
-      <div class="contact-card">
-        <span class="label">Mercado</span>
-        <span class="value">Colombia</span>
-        <span class="sub">Expansion a Latinoamerica en curso</span>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="label">Correo</span>
+          <a href="mailto:info@konbud.net" class="value">info@konbud.net</a>
+          <span class="sub">Respuesta en menos de 24 horas</span>
+        </div>
+        <div class="contact-card">
+          <span class="label">Servicio</span>
+          <span class="value">Plataforma SaaS</span>
+          <span class="sub">Para constructoras y directores de obra</span>
+        </div>
+        <div class="contact-card">
+          <span class="label">Mercado</span>
+          <span class="value">Colombia</span>
+          <span class="sub">Expansión a Latinoamérica en curso</span>
+        </div>
       </div>
     </div>
   </section>
@@ -175,12 +280,17 @@
       <img src="logo.png" alt="KONBUD" />
     </div>
     <div class="footer-links">
-      <a href="#que-hacemos">Que hacemos</a>
-      <a href="privacidad.html">Politica de privacidad</a>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="privacidad.html">Política de privacidad</a>
       <a href="mailto:info@konbud.net">Contacto</a>
     </div>
     <span class="footer-copy">&copy; 2025 KONBUD. Todos los derechos reservados.</span>
   </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
 
 </body>
 </html>
