@@ -15,7 +15,8 @@ function initHero() {
   })
     .from('.hero-badge', { autoAlpha: 0, y: 14, duration: 0.6 }, '-=0.55')
     .from('.hero-title', { autoAlpha: 0, y: 22, duration: 0.75, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-sub', { autoAlpha: 0, y: 14, duration: 0.6 }, '-=0.4')
+    .from('.hero-market-badge', { autoAlpha: 0, y: 10, duration: 0.5 }, '-=0.3')
+    .from('.hero-sub', { autoAlpha: 0, y: 14, duration: 0.6 }, '-=0.35')
     .from('.hero-cta a', { autoAlpha: 0, y: 10, stagger: 0.1, duration: 0.5 }, '-=0.35')
     .from('.scroll-hint', { autoAlpha: 0, duration: 0.5 }, '-=0.1');
 
@@ -220,6 +221,74 @@ function initROI() {
   });
 }
 
+// ─── PRICING REVEALS ─────────────────────────────────────────────────────────
+
+function initPricing() {
+  ScrollTrigger.batch('.pricing-card', {
+    onEnter: (batch) =>
+      gsap.from(batch, {
+        autoAlpha: 0,
+        y: 28,
+        stagger: 0.1,
+        duration: 0.65,
+        ease: 'power2.out',
+      }),
+    start: 'top 88%',
+    once: true,
+  });
+
+  gsap.from('.pricing-footer', {
+    autoAlpha: 0,
+    y: 14,
+    duration: 0.55,
+    scrollTrigger: { trigger: '.pricing-footer', start: 'top 90%', once: true },
+  });
+}
+
+// ─── CONTACT FORM ─────────────────────────────────────────────────────────────
+
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const status = form.querySelector('.form-status');
+  const btn    = form.querySelector('.form-submit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled    = true;
+    btn.textContent = 'Enviando…';
+    status.textContent = '';
+    status.className   = 'form-status';
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORM_ID', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.textContent = '¡Perfecto! Te contactamos en menos de 24 horas.';
+        status.className   = 'form-status success';
+        btn.textContent    = 'Mensaje enviado';
+      } else {
+        throw new Error('server error');
+      }
+    } catch {
+      status.textContent = 'Algo falló. Escríbenos directamente a info@konbud.net';
+      status.className   = 'form-status error';
+      btn.disabled       = false;
+      btn.textContent    = 'Quiero una demo gratuita';
+    }
+  });
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 
 const mm = gsap.matchMedia();
@@ -232,12 +301,13 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   initReveals();
   initNav();
   initScrollHint();
+  initPricing();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
 });
 
 // Fallback: show everything if reduced motion
 mm.add('(prefers-reduced-motion: reduce)', () => {
-  gsap.set(['.hero-logo', '.hero-badge', '.hero-title', '.hero-sub', '.hero-cta a', '.scroll-hint'], {
+  gsap.set(['.hero-logo', '.hero-badge', '.hero-market-badge', '.hero-title', '.hero-sub', '.hero-cta a', '.scroll-hint'], {
     autoAlpha: 1,
     y: 0,
     scale: 1,
@@ -247,3 +317,6 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
     gsap.set(path, { strokeDasharray: len, strokeDashoffset: 0 });
   });
 });
+
+// Form runs regardless of motion preference
+initContactForm();

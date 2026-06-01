@@ -27,8 +27,9 @@
       <a href="#roi">Resultados</a>
       <a href="#que-hacemos">Capacidades</a>
       <a href="#como-funciona">Cómo trabaja</a>
+      <a href="#pricing">Planes</a>
       <a href="#contacto">Contacto</a>
-      <a href="mailto:info@konbud.net" class="btn-nav">Activar mi agente</a>
+      <a href="https://calendly.com/santiago-konbud" class="btn-nav" target="_blank" rel="noopener">Agendar demo gratuita</a>
     </div>
   </nav>
 
@@ -46,13 +47,19 @@
         El agente que cotiza,<br />compara y adjudica
         <span> por ti</span>
       </h1>
+
+      <div class="hero-market-badge">
+        <span class="proof-dot" aria-hidden="true"></span>
+        <span>Primeros clientes en Colombia y España · Plazas limitadas para early adopters</span>
+      </div>
+
       <p class="hero-sub">
         KONBUD es tu agente de compras de obra. Le das el presupuesto,
         él contacta a los proveedores, consolida las ofertas y te presenta
         la mejor opción. Tú construyes. Él compra.
       </p>
       <div class="hero-cta">
-        <a href="mailto:info@konbud.net" class="btn-primary">Activar mi agente</a>
+        <a href="https://calendly.com/santiago-konbud" class="btn-primary" target="_blank" rel="noopener">Agendar demo gratuita</a>
         <a href="#roi" class="btn-secondary">Ver resultados reales</a>
       </div>
       <div class="scroll-hint" aria-hidden="true">
@@ -111,11 +118,11 @@
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-top">
-            <span class="kpi-num" data-target="87">0</span>
+            <span class="kpi-num" data-target="70">0</span>
             <span class="kpi-unit">%</span>
           </div>
           <div class="kpi-bar-track">
-            <div class="kpi-bar-fill" style="--pct: 87%"></div>
+            <div class="kpi-bar-fill" style="--pct: 70%"></div>
           </div>
           <p class="kpi-desc">menos tiempo gestionando cotizaciones</p>
         </div>
@@ -145,7 +152,7 @@
         <p class="roi-cta-text">
           Mientras tu equipo cotiza a mano, la competencia ya adjudicó.
         </p>
-        <a href="mailto:info@konbud.net" class="btn-primary">Activar mi agente ahora</a>
+        <a href="https://calendly.com/santiago-konbud" class="btn-primary" target="_blank" rel="noopener">Agendar demo gratuita</a>
       </div>
 
     </div>
@@ -340,22 +347,117 @@
           En menos de 48 horas tu agente está operativo.
         </p>
       </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <span class="label">Correo</span>
-          <a href="mailto:info@konbud.net" class="value">info@konbud.net</a>
-          <span class="sub">Agente activo en menos de 48 horas</span>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Nombre</label>
+            <input type="text" id="cf-name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="tu@empresa.com" required />
+          </div>
         </div>
-        <div class="contact-card">
-          <span class="label">Servicio</span>
-          <span class="value">Plataforma SaaS</span>
-          <span class="sub">Para constructoras y directores de obra</span>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-empresa">Empresa</label>
+            <input type="text" id="cf-empresa" name="empresa" placeholder="Nombre de tu constructora" required />
+          </div>
+          <div class="form-group">
+            <label for="cf-pais">País</label>
+            <select id="cf-pais" name="pais" required>
+              <option value="">Selecciona tu país</option>
+              <option value="Colombia">Colombia</option>
+              <option value="España">España</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
         </div>
-        <div class="contact-card">
-          <span class="label">Mercado</span>
-          <span class="value">Colombia</span>
-          <span class="sub">Expansión a Latinoamérica en curso</span>
+        <button type="submit" class="btn-primary form-submit">Quiero una demo gratuita</button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing" aria-label="Planes y precios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Planes</div>
+        <h2 class="section-title">El agente que se adapta<br />a tu ritmo de obra</h2>
+        <p class="section-sub">Sin costos de instalación. Sin contratos anuales forzados. Cancela cuando quieras.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="pricing-plan">Starter</h3>
+            <div class="pricing-price">
+              <span class="price-amount">€129</span>
+              <span class="price-period">/mes</span>
+            </div>
+            <p class="pricing-sub">Hasta 3 proyectos activos</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Usuarios ilimitados</li>
+            <li>Hasta 30 proveedores por proyecto</li>
+            <li>50 cotizaciones al mes</li>
+            <li>Follow-up automático</li>
+            <li>Dashboard básico</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a href="https://calendly.com/santiago-konbud" class="btn-secondary pricing-cta" target="_blank" rel="noopener">Agendar demo</a>
         </div>
+
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-popular-badge">Más popular</div>
+          <div class="pricing-card-header">
+            <h3 class="pricing-plan">Pro</h3>
+            <div class="pricing-price">
+              <span class="price-amount">€279</span>
+              <span class="price-period">/mes</span>
+            </div>
+            <p class="pricing-sub">Hasta 8 proyectos activos</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Todo lo de Starter</li>
+            <li>Hasta 100 proveedores por proyecto</li>
+            <li>200 cotizaciones al mes</li>
+            <li>Dashboard avanzado + export</li>
+            <li>Importación CSV + PDF</li>
+            <li>Soporte email + chat</li>
+          </ul>
+          <a href="https://calendly.com/santiago-konbud" class="btn-primary pricing-cta" target="_blank" rel="noopener">Agendar demo</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="pricing-plan">Business</h3>
+            <div class="pricing-price">
+              <span class="price-amount">€499</span>
+              <span class="price-period">/mes</span>
+            </div>
+            <p class="pricing-sub">Hasta 20 proyectos activos</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Todo lo de Pro</li>
+            <li>Proveedores ilimitados</li>
+            <li>Cotizaciones ilimitadas</li>
+            <li>Dashboard avanzado + API</li>
+            <li>Importación CSV + PDF + CRM</li>
+            <li>Soporte dedicado</li>
+          </ul>
+          <a href="https://calendly.com/santiago-konbud" class="btn-secondary pricing-cta" target="_blank" rel="noopener">Agendar demo</a>
+        </div>
+
+      </div>
+
+      <div class="pricing-footer">
+        <p class="pricing-note">¿Eres de los primeros? Accede al plan Pro por <strong>€79/mes</strong> los primeros 3 meses. Escríbenos a <a href="mailto:info@konbud.net">info@konbud.net</a></p>
+        <p class="pricing-note muted">Descuento del 15% pagando anual · Precios en Colombia disponibles en COP</p>
       </div>
     </div>
   </section>
