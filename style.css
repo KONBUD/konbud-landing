@@ -245,6 +245,7 @@ nav.scrolled {
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .btn-primary {
