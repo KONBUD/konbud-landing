@@ -242,11 +242,13 @@ nav.scrolled {
 }
 
 .hero-cta {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
   width: 100%;
+  text-align: center;
+}
+
+.hero-cta a {
+  display: inline-block;
+  margin: 6px;
 }
 
 .btn-primary {
