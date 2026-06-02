@@ -17,7 +17,6 @@ function initHero() {
     .from('.hero-title', { autoAlpha: 0, y: 22, duration: 0.75, ease: 'power3.out' }, '-=0.4')
     .from('.hero-market-badge', { autoAlpha: 0, y: 10, duration: 0.5 }, '-=0.3')
     .from('.hero-sub', { autoAlpha: 0, y: 14, duration: 0.6 }, '-=0.35')
-    .from('.hero-cta a', { autoAlpha: 0, y: 10, stagger: 0.1, duration: 0.5 }, '-=0.35')
     .from('.scroll-hint', { autoAlpha: 0, duration: 0.5 }, '-=0.1');
 
   // Floating logo
@@ -307,7 +306,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
 
 // Fallback: show everything if reduced motion
 mm.add('(prefers-reduced-motion: reduce)', () => {
-  gsap.set(['.hero-logo', '.hero-badge', '.hero-market-badge', '.hero-title', '.hero-sub', '.hero-cta a', '.scroll-hint'], {
+  gsap.set(['.hero-logo', '.hero-badge', '.hero-market-badge', '.hero-title', '.hero-sub', '.scroll-hint'], {
     autoAlpha: 1,
     y: 0,
     scale: 1,
