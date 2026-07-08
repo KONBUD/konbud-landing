@@ -151,58 +151,6 @@ function initScrollHint() {
 // ─── COUNTERS & BARS ─────────────────────────────────────────────────────────
 
 function initROI() {
-  // Animated number counters
-  document.querySelectorAll('.kpi-num').forEach((el) => {
-    const target = parseInt(el.dataset.target, 10);
-    const obj    = { val: 0 };
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      once: true,
-      onEnter() {
-        gsap.to(obj, {
-          val: target,
-          duration: 1.6,
-          ease: 'power2.out',
-          onUpdate() { el.textContent = Math.round(obj.val); },
-        });
-      },
-    });
-  });
-
-  // Animated KPI progress bars
-  document.querySelectorAll('.kpi-bar-fill').forEach((bar) => {
-    ScrollTrigger.create({
-      trigger: bar,
-      start: 'top 88%',
-      once: true,
-      onEnter() { bar.classList.add('animated'); },
-    });
-  });
-
-  // Before/After bars scale from bottom
-  ScrollTrigger.create({
-    trigger: '.before-after',
-    start: 'top 80%',
-    once: true,
-    onEnter() {
-      gsap.from('.before-bar', {
-        scaleY: 0,
-        transformOrigin: 'bottom',
-        duration: 1,
-        ease: 'power3.out',
-      });
-      gsap.from('.after-bar', {
-        scaleY: 0,
-        transformOrigin: 'bottom',
-        duration: 0.7,
-        delay: 0.4,
-        ease: 'power3.out',
-      });
-      gsap.from('.ba-arrow', { autoAlpha: 0, x: -10, duration: 0.5, delay: 0.6 });
-    },
-  });
-
   // ROI section text
   gsap.from('.roi-intro > *', {
     autoAlpha: 0,
@@ -211,6 +159,88 @@ function initROI() {
     duration: 0.7,
     scrollTrigger: { trigger: '.roi-intro', start: 'top 86%', once: true },
   });
+
+  // La carrera: el agente cruza la meta en 1s, la ronda manual se arrastra.
+  // Se reinicia al salir del viewport para que la comparación se vea siempre en vivo.
+  const race = document.querySelector('.race');
+  if (race) {
+    const dayEl = race.querySelector('.race-count');
+    const raceTl = gsap.timeline({
+      scrollTrigger: { trigger: race, start: 'top 75%', toggleActions: 'play none none reset' },
+    });
+    raceTl.from(race, { autoAlpha: 0, y: 26, duration: 0.55 });
+    raceTl.addLabel('go', '+=0.15');
+    raceTl.from('.race-bar--agent', { width: 0, duration: 1, ease: 'power3.inOut' }, 'go');
+    raceTl.from('.race-done', { autoAlpha: 0, scale: 0.6, duration: 0.4, ease: 'back.out(2)' }, 'go+=1.05');
+    raceTl.from('.race-bar--manual', {
+      width: 0,
+      duration: 3.6,
+      ease: 'none',
+      onUpdate() {
+        const p = this.progress();
+        dayEl.textContent = p < 1 ? 'Día ' + Math.max(1, Math.ceil(p * 5)) : '5 días';
+      },
+    }, 'go');
+    raceTl.from('.race-note', { autoAlpha: 0, y: 10, duration: 0.5 }, 'go+=1.4');
+  }
+
+  // Anillos KPI: el arco se dibuja y el número cuenta a la vez
+  document.querySelectorAll('.ring-card').forEach((card) => {
+    const ring        = card.querySelector('.ring-fill');
+    const circumference = parseFloat(ring.getAttribute('stroke-dasharray'));
+    const finalOffset = parseFloat(ring.getAttribute('stroke-dashoffset'));
+    const valEl       = card.querySelector('.ring-val');
+    const target      = parseFloat(valEl.dataset.target);
+
+    gsap.from(card, {
+      autoAlpha: 0,
+      y: 24,
+      duration: 0.55,
+      scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+    });
+
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 85%',
+      once: true,
+      onEnter() {
+        gsap.fromTo(ring,
+          { strokeDashoffset: circumference },
+          { strokeDashoffset: finalOffset, duration: 1.6, ease: 'power2.out' }
+        );
+        const obj = { v: 0 };
+        gsap.to(obj, {
+          v: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate() { valEl.textContent = Math.round(obj.v); },
+        });
+      },
+    });
+  });
+
+  // El golpe de dinero: las ofertas se despliegan y el ahorro cuenta en euros
+  const savings = document.querySelector('.savings');
+  if (savings) {
+    const numEl  = savings.querySelector('.savings-num');
+    const target = parseFloat(numEl.dataset.target);
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: savings, start: 'top 75%', once: true },
+    });
+    tl.from(savings, { autoAlpha: 0, y: 26, duration: 0.55 });
+    tl.from('.savings-copy > *', { autoAlpha: 0, y: 16, stagger: 0.1, duration: 0.5 }, '-=0.2');
+    gsap.utils.toArray('.offer-bar').forEach((bar, i) => {
+      tl.from(bar, { width: 0, duration: 0.9, ease: 'power3.out' }, 0.45 + i * 0.2);
+    });
+    tl.from('.offer-badge', { autoAlpha: 0, scale: 0.5, duration: 0.4, ease: 'back.out(2)' }, '-=0.15');
+    const obj = { v: 0 };
+    tl.to(obj, {
+      v: target,
+      duration: 1.4,
+      ease: 'power2.out',
+      onUpdate() { numEl.textContent = Math.round(obj.v).toLocaleString('es-ES'); },
+    }, 0.8);
+  }
 
   gsap.from('.roi-cta', {
     autoAlpha: 0,

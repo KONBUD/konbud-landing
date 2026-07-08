@@ -82,67 +82,98 @@
         </p>
       </div>
 
-      <!-- Before / After visual -->
-      <div class="before-after">
-        <div class="ba-side ba-before">
-          <div class="ba-label">Sin KONBUD</div>
-          <div class="ba-bar-wrap">
-            <div class="ba-bar before-bar">
-              <span class="ba-value">5 días</span>
-            </div>
-          </div>
-          <div class="ba-caption">para completar una ronda<br />de cotizaciones</div>
+      <!-- La carrera: a mano vs agente -->
+      <div class="race">
+        <div class="race-head">
+          <span class="race-title">La misma ronda: 12 proveedores, una partida</span>
+          <span class="race-sub">La distancia es el tiempo real</span>
         </div>
 
-        <div class="ba-arrow" aria-hidden="true">
-          <svg viewBox="0 0 40 24" fill="none">
-            <path d="M0 12h36M28 4l8 8-8 8" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span>KONBUD</span>
+        <div class="race-row">
+          <div class="race-label">A mano<span>correo, teléfono y Excel</span></div>
+          <div class="race-track">
+            <div class="race-bar race-bar--manual"><span class="race-count">5 días</span></div>
+          </div>
         </div>
 
-        <div class="ba-side ba-after">
-          <div class="ba-label highlight">Con KONBUD</div>
-          <div class="ba-bar-wrap">
-            <div class="ba-bar after-bar">
-              <span class="ba-value highlight">4 horas</span>
+        <div class="race-row">
+          <div class="race-label">Con KONBUD<span>el agente trabaja solo</span></div>
+          <div class="race-track">
+            <div class="race-bar race-bar--agent"></div>
+            <div class="race-done">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              4 horas · Ronda completa
             </div>
           </div>
-          <div class="ba-caption">para enviar todas las<br />solicitudes y esperar respuestas</div>
+        </div>
+
+        <p class="race-note">Cuando la ronda manual va por el día 2, el agente ya envió todo, hizo seguimiento y está consolidando respuestas.</p>
+      </div>
+
+      <!-- KPI rings -->
+      <div class="ring-grid">
+        <div class="ring-card">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="98.02"/>
+            </svg>
+            <div class="ring-num"><span class="ring-val" data-target="70">70</span><em>%</em></div>
+          </div>
+          <p>menos tiempo gestionando cotizaciones</p>
+        </div>
+        <div class="ring-card">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="0"/>
+            </svg>
+            <div class="ring-num"><span class="ring-val" data-target="3">3</span><em>×</em></div>
+          </div>
+          <p>más proveedores comparados por proyecto</p>
+        </div>
+        <div class="ring-card">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="52"/>
+              <circle class="ring-fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="0"/>
+            </svg>
+            <div class="ring-num"><span class="ring-val" data-target="100">100</span><em>%</em></div>
+          </div>
+          <p>trazabilidad de cada negociación y oferta recibida</p>
         </div>
       </div>
 
-      <!-- KPI Cards -->
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-top">
-            <span class="kpi-num" data-target="70">0</span>
-            <span class="kpi-unit">%</span>
+      <!-- El golpe de dinero: comparación de ofertas -->
+      <div class="savings">
+        <div class="savings-copy">
+          <div class="savings-label">Y además, mejor precio</div>
+          <h3>No solo ahorra tiempo.<br />Encuentra la mejor oferta.</h3>
+          <p>
+            Tres ofertas por la misma partida. Sin comparar, te quedas con la primera
+            que responde. El agente las pone lado a lado — y la diferencia se ve sola.
+          </p>
+          <div class="savings-total">
+            <span class="savings-amount">€<span class="savings-num" data-target="7200">7.200</span></span>
+            <span class="savings-caption">de ahorro en una sola partida,<br />eligiendo con datos</span>
           </div>
-          <div class="kpi-bar-track">
-            <div class="kpi-bar-fill" style="--pct: 70%"></div>
-          </div>
-          <p class="kpi-desc">menos tiempo gestionando cotizaciones</p>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-top">
-            <span class="kpi-num" data-target="3">0</span>
-            <span class="kpi-unit">×</span>
+        <div class="savings-chart" aria-label="Comparación de tres ofertas por la misma partida">
+          <div class="offer-row">
+            <span class="offer-name">Proveedor A</span>
+            <div class="offer-track"><div class="offer-bar" style="width: 100%"><span>€48.900</span></div></div>
           </div>
-          <div class="kpi-bar-track">
-            <div class="kpi-bar-fill" style="--pct: 100%"></div>
+          <div class="offer-row">
+            <span class="offer-name">Proveedor B</span>
+            <div class="offer-track"><div class="offer-bar" style="width: 92%"><span>€45.200</span></div></div>
           </div>
-          <p class="kpi-desc">más proveedores comparados por proyecto</p>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-top">
-            <span class="kpi-num" data-target="100">0</span>
-            <span class="kpi-unit">%</span>
+          <div class="offer-row offer-row--best">
+            <span class="offer-name">Proveedor C</span>
+            <div class="offer-track">
+              <div class="offer-bar offer-bar--best" style="width: 85%"><span>€41.700</span></div>
+              <span class="offer-badge">Adjudicada</span>
+            </div>
           </div>
-          <div class="kpi-bar-track">
-            <div class="kpi-bar-fill" style="--pct: 100%"></div>
-          </div>
-          <p class="kpi-desc">trazabilidad de cada negociación y oferta recibida</p>
         </div>
       </div>
 
