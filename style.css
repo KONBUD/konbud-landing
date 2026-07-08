@@ -138,6 +138,21 @@ nav.scrolled {
 
 .nav-links a:hover { color: var(--white); }
 
+.btn-nav-acceder {
+  color: var(--white) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  padding: 6px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s !important;
+}
+
+.btn-nav-acceder:hover {
+  border-color: rgba(255,255,255,0.45) !important;
+  color: #fff !important;
+}
+
 .btn-nav {
   background: var(--orange) !important;
   color: #fff !important;
@@ -1438,7 +1453,7 @@ footer {
 
 @media (max-width: 720px) {
   .steps-grid { grid-template-columns: 1fr; }
-  .nav-links a:not(.btn-nav) { display: none; }
+  .nav-links a:not(.btn-nav):not(.btn-nav-acceder) { display: none; }
   .form-row { grid-template-columns: 1fr; }
 }
 
