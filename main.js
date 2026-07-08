@@ -244,47 +244,67 @@ function initPricing() {
   });
 }
 
-// ─── CONTACT FORM ─────────────────────────────────────────────────────────────
+// ─── KON — SECCIÓN + CHAT MOCKUP ─────────────────────────────────────────────
 
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
+function initKon() {
+  const section = document.querySelector('.kon-section');
+  if (!section) return;
 
-  const status = form.querySelector('.form-status');
-  const btn    = form.querySelector('.form-submit');
+  gsap.from('.kon-figure', {
+    autoAlpha: 0,
+    y: 30,
+    duration: 0.8,
+    scrollTrigger: { trigger: '.kon-layout', start: 'top 80%', once: true },
+  });
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
+  gsap.from('.kon-points li', {
+    autoAlpha: 0,
+    y: 18,
+    stagger: 0.12,
+    duration: 0.55,
+    scrollTrigger: { trigger: '.kon-points', start: 'top 85%', once: true },
+  });
 
-    btn.disabled    = true;
-    btn.textContent = 'Enviando…';
-    status.textContent = '';
-    status.className   = 'form-status';
+  // Conversación: los mensajes aparecen en secuencia, como un chat real
+  const messages = gsap.utils.toArray('.chat-body > *');
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: '.kon-chat', start: 'top 75%', once: true },
+  });
 
-    const data = Object.fromEntries(new FormData(form));
+  tl.from('.kon-chat', { autoAlpha: 0, y: 30, duration: 0.6 });
+  messages.forEach((msg) => {
+    tl.from(msg, { autoAlpha: 0, y: 14, duration: 0.45 }, '+=0.4');
+  });
+  tl.fromTo(
+    '.chat-action-btn',
+    { scale: 1 },
+    { scale: 1.06, duration: 0.35, repeat: 3, yoyo: true, ease: 'sine.inOut' },
+    '-=1.4'
+  );
+}
 
-    try {
-      const res = await fetch('https://formspree.io/f/REPLACE_WITH_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
+// ─── BILLING TOGGLE (mensual / anual) ────────────────────────────────────────
+
+function initBillingToggle() {
+  const toggle = document.querySelector('.billing-toggle');
+  if (!toggle) return;
+
+  const btns = toggle.querySelectorAll('.billing-btn');
+  const grid = document.querySelector('.pricing-grid');
+
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.billing;
+      btns.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
       });
-
-      if (res.ok) {
-        form.reset();
-        status.textContent = '¡Perfecto! Te contactamos en menos de 24 horas.';
-        status.className   = 'form-status success';
-        btn.textContent    = 'Mensaje enviado';
-      } else {
-        throw new Error('server error');
-      }
-    } catch {
-      status.textContent = 'Algo falló. Escríbenos directamente a info@konbud.net';
-      status.className   = 'form-status error';
-      btn.disabled       = false;
-      btn.textContent    = 'Quiero una demo gratuita';
-    }
+      grid.classList.toggle('annual', mode === 'annual');
+      document.querySelectorAll('.price-amount').forEach((el) => {
+        el.textContent = '€' + el.dataset[mode];
+      });
+    });
   });
 }
 
@@ -300,6 +320,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   initReveals();
   initNav();
   initScrollHint();
+  initKon();
   initPricing();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
 });
@@ -317,5 +338,5 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
   });
 });
 
-// Form runs regardless of motion preference
-initContactForm();
+// El toggle de precios funciona con o sin animaciones
+initBillingToggle();
