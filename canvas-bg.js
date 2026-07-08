@@ -111,9 +111,9 @@
     return trails.filter(t => t.alive).length;
   }
 
-  function loop(now) {
-    ctx.clearRect(0, 0, W, H);
+  let canvasDirty = false;
 
+  function loop(now) {
     // Spawn
     if (now - lastSpawn > nextInterval && activeCount() < 3) {
       trails.push(new Trail());
@@ -121,11 +121,20 @@
       nextInterval = 3800 + Math.random() * 4200;
     }
 
-    // Update & draw
-    for (let i = trails.length - 1; i >= 0; i--) {
-      trails[i].update();
-      trails[i].draw();
-      if (!trails[i].alive) trails.splice(i, 1);
+    if (trails.length > 0) {
+      ctx.clearRect(0, 0, W, H);
+      canvasDirty = true;
+
+      // Update & draw
+      for (let i = trails.length - 1; i >= 0; i--) {
+        trails[i].update();
+        trails[i].draw();
+        if (!trails[i].alive) trails.splice(i, 1);
+      }
+    } else if (canvasDirty) {
+      // Último clear tras morir el último trail; luego el loop queda ocioso
+      ctx.clearRect(0, 0, W, H);
+      canvasDirty = false;
     }
 
     requestAnimationFrame(loop);

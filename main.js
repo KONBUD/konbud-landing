@@ -168,17 +168,19 @@ function initROI() {
     const raceTl = gsap.timeline({
       scrollTrigger: { trigger: race, start: 'top 75%', toggleActions: 'play none none reset' },
     });
+    let lastDay = '';
     raceTl.from(race, { autoAlpha: 0, y: 26, duration: 0.55 });
     raceTl.addLabel('go', '+=0.15');
-    raceTl.from('.race-bar--agent', { width: 0, duration: 1, ease: 'power3.inOut' }, 'go');
+    raceTl.from('.race-bar--agent', { xPercent: -100, duration: 1, ease: 'power3.inOut' }, 'go');
     raceTl.from('.race-done', { autoAlpha: 0, scale: 0.6, duration: 0.4, ease: 'back.out(2)' }, 'go+=1.05');
     raceTl.from('.race-bar--manual', {
-      width: 0,
+      xPercent: -100,
       duration: 3.6,
       ease: 'none',
       onUpdate() {
         const p = this.progress();
-        dayEl.textContent = p < 1 ? 'Día ' + Math.max(1, Math.ceil(p * 5)) : '5 días';
+        const label = p < 1 ? 'Día ' + Math.max(1, Math.ceil(p * 5)) : '5 días';
+        if (label !== lastDay) { lastDay = label; dayEl.textContent = label; }
       },
     }, 'go');
     raceTl.from('.race-note', { autoAlpha: 0, y: 10, duration: 0.5 }, 'go+=1.4');
@@ -209,11 +211,15 @@ function initROI() {
           { strokeDashoffset: finalOffset, duration: 1.6, ease: 'power2.out' }
         );
         const obj = { v: 0 };
+        let lastVal = -1;
         gsap.to(obj, {
           v: target,
           duration: 1.6,
           ease: 'power2.out',
-          onUpdate() { valEl.textContent = Math.round(obj.v); },
+          onUpdate() {
+            const v = Math.round(obj.v);
+            if (v !== lastVal) { lastVal = v; valEl.textContent = v; }
+          },
         });
       },
     });
@@ -230,15 +236,19 @@ function initROI() {
     tl.from(savings, { autoAlpha: 0, y: 26, duration: 0.55 });
     tl.from('.savings-copy > *', { autoAlpha: 0, y: 16, stagger: 0.1, duration: 0.5 }, '-=0.2');
     gsap.utils.toArray('.offer-bar').forEach((bar, i) => {
-      tl.from(bar, { width: 0, duration: 0.9, ease: 'power3.out' }, 0.45 + i * 0.2);
+      tl.from(bar, { xPercent: -100, duration: 0.9, ease: 'power3.out' }, 0.45 + i * 0.2);
     });
     tl.from('.offer-badge', { autoAlpha: 0, scale: 0.5, duration: 0.4, ease: 'back.out(2)' }, '-=0.15');
     const obj = { v: 0 };
+    let lastVal = -1;
     tl.to(obj, {
       v: target,
       duration: 1.4,
       ease: 'power2.out',
-      onUpdate() { numEl.textContent = Math.round(obj.v).toLocaleString('es-ES'); },
+      onUpdate() {
+        const v = Math.round(obj.v);
+        if (v !== lastVal) { lastVal = v; numEl.textContent = v.toLocaleString('es-ES'); }
+      },
     }, 0.8);
   }
 
