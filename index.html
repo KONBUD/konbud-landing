@@ -612,10 +612,17 @@
         <p class="section-sub">Sin costos de instalación. Onboarding personalizado incluido. Cancela cuando quieras.</p>
       </div>
 
-      <div class="billing-toggle" role="group" aria-label="Periodicidad de facturación">
-        <button type="button" class="billing-btn active" data-billing="monthly" aria-pressed="true">Mensual</button>
-        <button type="button" class="billing-btn" data-billing="annual" aria-pressed="false">Anual <span class="billing-save">2 meses gratis</span></button>
+      <div class="pricing-toggles">
+        <div class="billing-toggle currency-toggle" role="group" aria-label="Moneda">
+          <button type="button" class="billing-btn" data-currency="EUR" aria-pressed="false">€ EUR</button>
+          <button type="button" class="billing-btn" data-currency="COP" aria-pressed="false">$ COP</button>
+        </div>
+        <div class="billing-toggle" role="group" aria-label="Periodicidad de facturación">
+          <button type="button" class="billing-btn active" data-billing="monthly" aria-pressed="true">Mensual</button>
+          <button type="button" class="billing-btn" data-billing="annual" aria-pressed="false">Anual <span class="billing-save">2 meses gratis</span></button>
+        </div>
       </div>
+      <p class="currency-note">Precios según tu región · cámbialos cuando quieras</p>
 
       <div class="pricing-grid">
 
@@ -623,7 +630,7 @@
           <div class="pricing-card-header">
             <h3 class="pricing-plan">Starter</h3>
             <div class="pricing-price">
-              <span class="price-amount" data-monthly="199" data-annual="166">€199</span>
+              <span class="price-amount" data-eur-monthly="199" data-eur-annual="166" data-cop-monthly="690000" data-cop-annual="575000">€199</span>
               <span class="price-period">/mes</span>
             </div>
             <p class="price-annual-note">Facturado anualmente — ahorras €398/año</p>
@@ -645,7 +652,7 @@
           <div class="pricing-card-header">
             <h3 class="pricing-plan">Pro</h3>
             <div class="pricing-price">
-              <span class="price-amount" data-monthly="399" data-annual="332">€399</span>
+              <span class="price-amount" data-eur-monthly="399" data-eur-annual="332" data-cop-monthly="1390000" data-cop-annual="1158000">€399</span>
               <span class="price-period">/mes</span>
             </div>
             <p class="price-annual-note">Facturado anualmente — ahorras €798/año</p>
@@ -667,7 +674,7 @@
           <div class="pricing-card-header">
             <h3 class="pricing-plan">Business</h3>
             <div class="pricing-price">
-              <span class="price-amount" data-monthly="799" data-annual="666">€799</span>
+              <span class="price-amount" data-eur-monthly="799" data-eur-annual="666" data-cop-monthly="2690000" data-cop-annual="2242000">€799</span>
               <span class="price-period">/mes</span>
             </div>
             <p class="price-annual-note">Facturado anualmente — ahorras €1.598/año</p>
@@ -689,7 +696,7 @@
       <div class="pricing-footer">
         <p class="pricing-note">
           <strong>Programa early adopter:</strong> las primeras constructoras que se unan acceden
-          al plan Pro por <strong>€149/mes</strong> durante los primeros 3 meses, con onboarding
+          al plan Pro por <strong><span data-ea-price data-eur="149" data-cop="990000">€149</span>/mes</strong> durante los primeros 3 meses, con onboarding
           personalizado incluido. Plazas limitadas.
         </p>
       </div>

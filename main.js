@@ -325,25 +325,95 @@ function initKon() {
 
 // ─── BILLING TOGGLE (mensual / anual) ────────────────────────────────────────
 
-function initBillingToggle() {
-  const toggle = document.querySelector('.billing-toggle');
-  if (!toggle) return;
-
-  const btns = toggle.querySelectorAll('.billing-btn');
+// Moneda por región (COP en Colombia, EUR resto) + periodicidad mensual/anual.
+// Detección: 1) elección guardada del usuario  2) zona horaria (instantáneo)
+// 3) IP vía /api/geo (autoritativo, Vercel). El toggle es visible y editable
+// para que nadie sienta que se le "esconde" un precio.
+function initPricingControls() {
   const grid = document.querySelector('.pricing-grid');
+  if (!grid) return;
 
-  btns.forEach((btn) => {
+  const state = { currency: 'EUR', billing: 'monthly' };
+  const LS_KEY = 'konbud_currency';
+
+  const fmtMoney = (cur, v) => {
+    const n = new Intl.NumberFormat('es').format(v);
+    return cur === 'COP' ? '$' + n : '€' + n;
+  };
+
+  function render() {
+    const c = state.currency.toLowerCase();
+    grid.querySelectorAll('.pricing-card').forEach((card) => {
+      const amt = card.querySelector('.price-amount');
+      if (!amt) return;
+      const monthly = Number(amt.dataset[c + 'Monthly']);
+      const value = Number(amt.dataset[c + (state.billing === 'annual' ? 'Annual' : 'Monthly')]);
+      amt.textContent = fmtMoney(state.currency, value);
+      const note = card.querySelector('.price-annual-note');
+      if (note) note.textContent = 'Facturado anualmente — ahorras ' + fmtMoney(state.currency, monthly * 2) + '/año';
+    });
+    const ea = document.querySelector('[data-ea-price]');
+    if (ea) ea.textContent = fmtMoney(state.currency, Number(ea.dataset[state.currency === 'COP' ? 'cop' : 'eur']));
+    grid.classList.toggle('annual', state.billing === 'annual');
+  }
+
+  function syncUI() {
+    document.querySelectorAll('[data-currency]').forEach((b) => {
+      const on = b.dataset.currency === state.currency;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+    document.querySelectorAll('[data-billing]').forEach((b) => {
+      const on = b.dataset.billing === state.billing;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+
+  // Moneda inicial
+  let locked = false;
+  const saved = localStorage.getItem(LS_KEY);
+  if (saved === 'EUR' || saved === 'COP') {
+    state.currency = saved;
+    locked = true;
+  } else {
+    try {
+      if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'America/Bogota') state.currency = 'COP';
+    } catch (_) {}
+  }
+
+  render();
+  syncUI();
+
+  // Confirmación autoritativa por IP, salvo que el usuario ya haya elegido
+  if (!locked) {
+    fetch('/api/geo')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!d || !d.country) return;
+        const geoCur = d.country === 'CO' ? 'COP' : 'EUR';
+        if (geoCur !== state.currency) {
+          state.currency = geoCur;
+          render();
+          syncUI();
+        }
+      })
+      .catch(() => {});
+  }
+
+  document.querySelectorAll('[data-currency]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const mode = btn.dataset.billing;
-      btns.forEach((b) => {
-        const active = b === btn;
-        b.classList.toggle('active', active);
-        b.setAttribute('aria-pressed', String(active));
-      });
-      grid.classList.toggle('annual', mode === 'annual');
-      document.querySelectorAll('.price-amount').forEach((el) => {
-        el.textContent = '€' + el.dataset[mode];
-      });
+      state.currency = btn.dataset.currency;
+      localStorage.setItem(LS_KEY, state.currency);
+      render();
+      syncUI();
+    });
+  });
+  document.querySelectorAll('[data-billing]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      state.billing = btn.dataset.billing;
+      render();
+      syncUI();
     });
   });
 }
@@ -379,4 +449,4 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 });
 
 // El toggle de precios funciona con o sin animaciones
-initBillingToggle();
+initPricingControls();
