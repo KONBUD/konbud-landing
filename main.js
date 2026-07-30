@@ -260,6 +260,89 @@ function initROI() {
   });
 }
 
+// ─── SE ADAPTA: tres formatos convergen en una vista ─────────────────────────
+
+function initAdapt() {
+  const piece = document.querySelector('.adapt-piece');
+  if (!piece) return;
+
+  gsap.from('.adapt-enemy', {
+    autoAlpha: 0,
+    x: -14,
+    duration: 0.6,
+    scrollTrigger: { trigger: '.adapt-enemy', start: 'top 88%', once: true },
+  });
+
+  // El markup ya trae el estado final: si GSAP no corre, se ve la pieza completa.
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: piece, start: 'top 72%', once: true },
+  });
+
+  tl.from(piece, { autoAlpha: 0, y: 26, duration: 0.55 });
+  tl.from('.adapt-head > *', { autoAlpha: 0, y: 10, stagger: 0.08, duration: 0.4 }, '-=0.25');
+
+  // 1. Entran los tres formatos, cada uno con su propia identidad
+  tl.from('.fmt-card', {
+    autoAlpha: 0,
+    y: 22,
+    stagger: 0.13,
+    duration: 0.5,
+    ease: 'power2.out',
+  }, 'in');
+  tl.from('.fmt-line', {
+    autoAlpha: 0,
+    scaleX: 0.4,
+    transformOrigin: 'left center',
+    stagger: 0.015,
+    duration: 0.35,
+  }, 'in+=0.2');
+
+  // 2. Las líneas se dibujan hacia el punto de convergencia
+  // (el label se define antes de usarlo: si no, GSAP lo ancla al final del timeline)
+  tl.addLabel('converge', '-=0.1');
+  gsap.utils.toArray('.cvg-path').forEach((path, i) => {
+    const len = path.getTotalLength();
+    tl.fromTo(path,
+      { strokeDasharray: len, strokeDashoffset: len },
+      { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut' },
+      'converge+=' + i * 0.08
+    );
+  });
+
+  // 3. Sale una sola vista normalizada
+  tl.from('.unified', { autoAlpha: 0, y: 18, duration: 0.55, ease: 'power2.out' }, 'converge+=0.55');
+  tl.from('.u-row', { autoAlpha: 0, x: -12, stagger: 0.07, duration: 0.4 }, 'converge+=0.75');
+  tl.from('.adapt-learned', {
+    autoAlpha: 0,
+    scale: 0.85,
+    duration: 0.45,
+    ease: 'back.out(1.8)',
+  }, 'converge+=1.15');
+
+  gsap.from('.adapt-facts li', {
+    autoAlpha: 0,
+    y: 12,
+    stagger: 0.07,
+    duration: 0.45,
+    scrollTrigger: { trigger: '.adapt-facts', start: 'top 88%', once: true },
+  });
+
+  gsap.from('.adapt-integr', {
+    autoAlpha: 0,
+    y: 16,
+    duration: 0.6,
+    scrollTrigger: { trigger: '.adapt-integr', start: 'top 88%', once: true },
+  });
+
+  gsap.from('.adapt-objection > *', {
+    autoAlpha: 0,
+    y: 14,
+    stagger: 0.14,
+    duration: 0.6,
+    scrollTrigger: { trigger: '.adapt-objection', start: 'top 88%', once: true },
+  });
+}
+
 // ─── PRICING REVEALS ─────────────────────────────────────────────────────────
 
 function initPricing() {
@@ -431,6 +514,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   initNav();
   initScrollHint();
   initKon();
+  initAdapt();
   initPricing();
   document.fonts.ready.then(() => ScrollTrigger.refresh());
 });
