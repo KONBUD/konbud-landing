@@ -85,9 +85,9 @@
       <a href="#se-adapta">Se adapta</a>
       <a href="#kon">Kon</a>
       <a href="#pricing">Planes</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#prueba">Prueba gratis</a>
       <a href="https://app.konbud.net" class="btn-nav-acceder">Acceder</a>
-      <a href="https://calendly.com/konbud-info/30min" class="btn-nav" target="_blank" rel="noopener">Agendar demo gratuita</a>
+      <a href="#prueba" class="btn-nav">Pruébalo gratis</a>
     </div>
   </nav>
 
@@ -113,8 +113,8 @@
         la mejor opción. Tú construyes. Él compra.
       </p>
       <div class="hero-cta">
-        <a href="https://calendly.com/konbud-info/30min" class="btn-primary" target="_blank" rel="noopener">Agendar demo gratuita</a>
-        <a href="#roi" class="btn-secondary">Ver resultados reales</a>
+        <a href="#prueba" class="btn-primary">Pruébalo gratis</a>
+        <a href="https://calendly.com/konbud-info/30min" class="btn-secondary" target="_blank" rel="noopener">Agendar demo</a>
       </div>
       <div class="scroll-hint" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -237,7 +237,7 @@
         <p class="roi-cta-text">
           Mientras tu equipo cotiza a mano, la competencia ya adjudicó.
         </p>
-        <a href="https://calendly.com/konbud-info/30min" class="btn-primary" target="_blank" rel="noopener">Agendar demo gratuita</a>
+        <a href="#prueba" class="btn-primary">Pruébalo con tu presupuesto</a>
       </div>
 
     </div>
@@ -790,21 +790,108 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contacto" aria-label="Contacto">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Activa tu agente</div>
-        <h2 class="section-title">Tu próxima obra<br />con un agente de compras</h2>
-        <p class="section-sub">
-          La demo es gratuita, sin instalaciones y sin cambios en tu flujo de trabajo.
-          En menos de 48 horas tu agente está operativo.
-        </p>
+  <!-- PRUÉBALO GRATIS -->
+  <section class="trial-section" id="prueba" aria-label="Pruébalo gratis">
+    <span id="contacto" class="anchor-alias" aria-hidden="true"></span>
+    <div class="container trial-grid">
+
+      <div class="trial-copy">
+        <div class="section-header">
+          <div class="section-label">Prueba gratuita</div>
+          <h2 class="section-title">Pruébalo con tu<br />propio presupuesto</h2>
+          <p class="section-sub">
+            No te pedimos que te imagines cómo funcionaría. Sube el presupuesto de una obra real
+            y úsalo 30 días gratis en las compras que tengas este mes.
+          </p>
+        </div>
+
+        <ol class="trial-steps">
+          <li>
+            <span class="trial-step-num">1</span>
+            <div>
+              <h3>Sube tu presupuesto</h3>
+              <p>Excel, Presto o BC3. Si prefieres, solo las partidas que vas a comprar.</p>
+            </div>
+          </li>
+          <li>
+            <span class="trial-step-num">2</span>
+            <div>
+              <h3>Te lo dejamos montado</h3>
+              <p>En menos de 48 horas, con una llamada de 15 minutos para dejarlo funcionando contigo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="trial-step-num">3</span>
+            <div>
+              <h3>Compra con datos</h3>
+              <p>KONBUD pide las ofertas a tus proveedores, las persigue y te enseña, partida a partida,
+                cuánto te estás desviando del presupuesto antes de adjudicar.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="trial-terms">30 días · una obra · sin tarjeta · tus datos solo los ves tú</p>
       </div>
 
-      <div class="hero-cta">
-        <a href="https://calendly.com/konbud-info/30min" class="btn-primary" target="_blank" rel="noopener">Agendar demo gratuita</a>
-      </div>
+      <form class="trial-form" id="trial-form" novalidate>
+        <div class="trial-form-body">
+          <div class="trial-row">
+            <label>Nombre<input name="nombre" type="text" autocomplete="name" required maxlength="120" /></label>
+            <label>Empresa<input name="empresa" type="text" autocomplete="organization" required maxlength="160" /></label>
+          </div>
+          <div class="trial-row">
+            <label>Email de trabajo<input name="email" type="email" autocomplete="email" required maxlength="200" /></label>
+            <label><span>Teléfono <span class="opt">(opcional)</span></span><input name="telefono" type="tel" autocomplete="tel" maxlength="40" /></label>
+          </div>
+          <div class="trial-row">
+            <label>País
+              <select name="pais">
+                <option>España</option>
+                <option>Colombia</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label>¿Cuándo compras?
+              <select name="cuando_compra">
+                <option>Este mes</option>
+                <option>En los próximos 3 meses</option>
+                <option>Solo quiero verlo</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="trial-file">
+            <input name="archivo" type="file" accept=".xlsx,.xls,.csv,.bc3,.pdf" />
+            <span class="trial-file-box">
+              <strong>Adjunta tu presupuesto</strong>
+              <span class="trial-file-name">Excel, Presto (BC3) o PDF · opcional · máx. 25 MB</span>
+            </span>
+          </label>
+
+          <label><span>Algo que debamos saber <span class="opt">(opcional)</span></span>
+            <textarea name="mensaje" rows="3" maxlength="2000" placeholder="Tipo de obra, qué partidas compras pronto…"></textarea>
+          </label>
+
+          <label class="trial-hp" aria-hidden="true">Web<input name="web" type="text" tabindex="-1" autocomplete="off" /></label>
+
+          <label class="trial-consent">
+            <input name="consent" type="checkbox" required />
+            <span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span>
+          </label>
+
+          <button type="submit" class="btn-primary trial-submit">Pruébalo gratis</button>
+          <p class="trial-status" role="status" aria-live="polite"></p>
+          <p class="trial-alt">Te respondemos en menos de 24 horas. ¿Prefieres verlo antes?
+            <a href="https://calendly.com/konbud-info/30min" target="_blank" rel="noopener">Agenda una demo de 30 min</a></p>
+        </div>
+
+        <div class="trial-done" hidden>
+          <span class="trial-done-icon" aria-hidden="true">✓</span>
+          <h3>Recibido</h3>
+          <p>Te escribo en menos de 24 horas desde <strong>santiago@konbud.net</strong> con tu acceso
+            y para agendar los 15 minutos de puesta en marcha.</p>
+        </div>
+      </form>
 
     </div>
   </section>
@@ -938,6 +1025,7 @@
       <a href="#roi">Resultados</a>
       <a href="#que-hacemos">Capacidades</a>
       <a href="privacidad.html">Política de privacidad</a>
+      <a href="#prueba">Prueba gratis</a>
       <a href="mailto:info@konbud.net">Contacto</a>
     </div>
     <span class="footer-copy">&copy; 2026 KONBUD. Todos los derechos reservados.</span>
@@ -947,6 +1035,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
+  <script src="trial.js" defer></script>
 
 </body>
 </html>

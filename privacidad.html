@@ -119,6 +119,7 @@
     <p>Recopilamos informacion en dos contextos distintos:</p>
     <ul>
       <li><strong>Clientes (constructoras):</strong> nombre, correo electronico, datos del proyecto y presupuesto de obra. Esta informacion es proporcionada directamente por el usuario al registrarse en la plataforma.</li>
+      <li><strong>Solicitudes de prueba gratuita:</strong> nombre, empresa, correo electronico, telefono (opcional), pais, y el presupuesto de obra si decides adjuntarlo. Los usamos unicamente para darte acceso a la prueba y contactarte sobre ella. El presupuesto adjunto se guarda en un almacenamiento privado al que solo accede KONBUD; puedes pedir que lo borremos en cualquier momento.</li>
       <li><strong>Proveedores:</strong> nombre de la empresa, correo electronico de contacto, telefono y categorias de materiales que suministran. Esta informacion es ingresada por las constructoras clientes o recopilada de fuentes publicas.</li>
     </ul>
 
@@ -158,8 +159,8 @@
 
     <h2>5. Almacenamiento y seguridad</h2>
     <p>
-      Los datos de la plataforma se almacenan en <strong>Airtable</strong> (proveedor de base de datos en la nube
-      con cifrado en reposo y en transito) y en servidores de <strong>Railway</strong> (infraestructura cloud).
+      Los datos de la plataforma se almacenan en <strong>Supabase</strong> (base de datos PostgreSQL en la nube,
+      con cifrado en reposo y en transito, y control de acceso por fila) y en servidores de <strong>Railway</strong> (infraestructura cloud).
       Aplicamos medidas tecnicas razonables para proteger la informacion contra accesos no autorizados.
     </p>
 
@@ -167,7 +168,8 @@
     <p>Utilizamos los siguientes proveedores de servicio que pueden procesar datos en nuestro nombre:</p>
     <ul>
       <li><strong>SendGrid (Twilio):</strong> envio de correos electronicos transaccionales.</li>
-      <li><strong>Airtable:</strong> almacenamiento de datos de clientes, proveedores y cotizaciones.</li>
+      <li><strong>Supabase:</strong> almacenamiento de datos de clientes, proveedores, cotizaciones y solicitudes de prueba.</li>
+      <li><strong>Vercel:</strong> alojamiento de este sitio web.</li>
       <li><strong>OpenAI:</strong> procesamiento de texto para analisis de materiales (datos anonimizados).</li>
       <li><strong>Railway:</strong> infraestructura de servidor para el backend de la plataforma.</li>
     </ul>
