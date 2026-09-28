@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KONBUD — El agente de compras para tu obra</title>
-  <meta name="description" content="KONBUD es el agente de IA que gestiona tus compras de construcción. Cotiza, compara, adjudica y te responde por chat. Tú construyes. Él compra." />
-  <link rel="canonical" href="https://konbud.net/" />
+  <title>KONBUD — Agente de compras de obra: ofertas, comparativo y desviación del presupuesto</title>
+  <meta name="description" content="KONBUD pide las ofertas a tus proveedores de obra, las persigue y te arma el comparativo contra tu presupuesto antes de adjudicar. Pruébalo gratis 30 días con tu propio presupuesto." />
+  <link rel="canonical" href="https://www.konbud.net/" />
 
   <!-- Open Graph (previews en WhatsApp, LinkedIn, etc.) -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://konbud.net/" />
+  <meta property="og:url" content="https://www.konbud.net/" />
   <meta property="og:site_name" content="KONBUD" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:title" content="KONBUD — El agente de compras para tu obra" />
@@ -52,7 +52,70 @@
         "offers": [
           { "@type": "Offer", "name": "Starter", "price": "199", "priceCurrency": "EUR" },
           { "@type": "Offer", "name": "Pro", "price": "399", "priceCurrency": "EUR" },
-          { "@type": "Offer", "name": "Business", "price": "799", "priceCurrency": "EUR" }
+          { "@type": "Offer", "name": "Business", "price": "799", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Prueba gratuita 30 días", "price": "0", "priceCurrency": "EUR", "url": "https://konbud.net/#prueba" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://konbud.net/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es KONBUD?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KONBUD es un agente de compras de obra. Lee el presupuesto de la obra, pide ofertas por email a tus proveedores partida a partida, les hace seguimiento hasta que responden, lee sus respuestas (PDF, Excel o texto) y te arma el comparativo contra tu presupuesto antes de adjudicar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué se diferencia de un software de gestión de obra?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un software de gestión de obra te da el sitio donde registrar ofertas y hacer el comparativo: las ofertas las sigues pidiendo y persiguiendo tú. KONBUD hace ese trabajo: sale a pedir las ofertas, insiste a quien no responde y ordena lo que llega. No sustituye a tu herramienta de presupuestos; trabaja con el presupuesto que ya tienes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo sé si estoy pagando más de lo presupuestado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Comparando cada oferta con el precio de esa partida en tu presupuesto, en el momento de comprar y no al cerrar la obra. KONBUD muestra esa desviación partida a partida y te avisa cuando una oferta se sale del precio presupuestado, antes de que firmes el pedido."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuántas ofertas debería pedir por partida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Con dos ofertas no sabes si el precio es bueno; con tres o más empiezas a ver el precio real de mercado. El problema es que pedirlas a mano lleva semanas. En nuestra prueba en obra real se lanzaron 552 peticiones de precio para 430 partidas y se recibieron 460 respuestas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué formatos de presupuesto acepta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Excel, Presto y BC3. Si tu presupuesto tiene otro formato, nos lo mandas y lo montamos nosotros."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Los correos a proveedores salen en mi nombre?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Salen desde KONBUD en nombre de tu empresa y de tu obra, con tu contacto para que el proveedor pueda responderte. Solo se escribe a los proveedores y partidas que tú eliges: nunca se hacen envíos masivos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta y cómo lo pruebo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hay planes desde 199 € al mes. Antes puedes probarlo gratis 30 días en una obra real: subes tu presupuesto, te lo dejamos montado en menos de 48 horas y lo usas en las compras de ese mes. Pruébalo gratis."
+            }
+          }
         ]
       }
     ]
@@ -85,6 +148,7 @@
       <a href="#se-adapta">Se adapta</a>
       <a href="#kon">Kon</a>
       <a href="#pricing">Planes</a>
+      <a href="/blog/">Blog</a>
       <a href="#prueba">Prueba gratis</a>
       <a href="https://app.konbud.net" class="btn-nav-acceder">Acceder</a>
       <a href="#prueba" class="btn-nav">Pruébalo gratis</a>
@@ -830,7 +894,7 @@
           </li>
         </ol>
 
-        <p class="trial-terms">30 días · una obra · sin tarjeta · tus datos solo los ves tú</p>
+        <p class="trial-terms">30 días · una obra · sin tarjeta · sin compromiso</p>
       </div>
 
       <form class="trial-form" id="trial-form" novalidate>
@@ -1016,6 +1080,60 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq-section" id="preguntas" aria-label="Preguntas frecuentes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Preguntas frecuentes</div>
+        <h2 class="section-title">Lo que nos preguntan<br />los equipos de compras</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Qué es KONBUD?</summary>
+          <p>KONBUD es un agente de compras de obra. Lee el presupuesto de la obra, pide ofertas por email
+            a tus proveedores partida a partida, les hace seguimiento hasta que responden, lee sus respuestas
+            (PDF, Excel o texto) y te arma el comparativo contra tu presupuesto antes de adjudicar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿En qué se diferencia de un software de gestión de obra?</summary>
+          <p>Un software de gestión de obra te da el sitio donde registrar ofertas y hacer el comparativo:
+            las ofertas las sigues pidiendo y persiguiendo tú. KONBUD hace ese trabajo: sale a pedir las
+            ofertas, insiste a quien no responde y ordena lo que llega. No sustituye a tu herramienta de
+            presupuestos; trabaja con el presupuesto que ya tienes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo sé si estoy pagando más de lo presupuestado?</summary>
+          <p>Comparando cada oferta con el precio de esa partida en tu presupuesto, en el momento de comprar
+            y no al cerrar la obra. KONBUD muestra esa desviación partida a partida y te avisa cuando una
+            oferta se sale del precio presupuestado, antes de que firmes el pedido.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuántas ofertas debería pedir por partida?</summary>
+          <p>Con dos ofertas no sabes si el precio es bueno; con tres o más empiezas a ver el precio real de
+            mercado. El problema es que pedirlas a mano lleva semanas. En nuestra prueba en obra real se
+            lanzaron 552 peticiones de precio para 430 partidas y se recibieron 460 respuestas.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué formatos de presupuesto acepta?</summary>
+          <p>Excel, Presto y BC3. Si tu presupuesto tiene otro formato, nos lo mandas y lo montamos nosotros.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Los correos a proveedores salen en mi nombre?</summary>
+          <p>Salen desde KONBUD en nombre de tu empresa y de tu obra, con tu contacto para que el proveedor
+            pueda responderte. Solo se escribe a los proveedores y partidas que tú eliges: nunca se hacen
+            envíos masivos.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta y cómo lo pruebo?</summary>
+          <p>Hay planes desde 199 € al mes. Antes puedes probarlo gratis 30 días en una obra real: subes tu
+            presupuesto, te lo dejamos montado en menos de 48 horas y lo usas en las compras de ese mes.
+            <a href="#prueba">Pruébalo gratis</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
@@ -1026,6 +1144,8 @@
       <a href="#que-hacemos">Capacidades</a>
       <a href="privacidad.html">Política de privacidad</a>
       <a href="#prueba">Prueba gratis</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="/blog/">Blog</a>
       <a href="mailto:info@konbud.net">Contacto</a>
     </div>
     <span class="footer-copy">&copy; 2026 KONBUD. Todos los derechos reservados.</span>

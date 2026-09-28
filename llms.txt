@@ -1,0 +1,37 @@
+# KONBUD
+
+> KONBUD es un agente de compras de obra para constructoras. Lee el presupuesto de la obra, pide ofertas por email a los proveedores de la constructora partida a partida, les hace seguimiento hasta que responden, lee sus respuestas (PDF, Excel o texto) y arma el comparativo contra el presupuesto antes de adjudicar, mostrando la desviación de cada partida.
+
+KONBUD está pensado para constructoras de 10 a 200 personas en España y Colombia que compran material a varios proveedores y quieren controlar el margen en el momento de comprar, no al cerrar la obra.
+
+## Qué hace
+
+- Importa el presupuesto de obra (Excel, Presto, BC3).
+- Pide ofertas a los proveedores que elige la constructora, por partida o por grupo de partidas.
+- Hace seguimiento automático a quien no responde.
+- Lee las ofertas recibidas en cualquier formato y las normaliza.
+- Compara cada oferta con el precio presupuestado y avisa cuando se sale del presupuesto.
+- Permite consultar y dar órdenes por chat (asistente "Kon").
+
+## En qué se diferencia
+
+- Un software de gestión de obra ofrece el sitio donde registrar ofertas y hacer el comparativo; las ofertas se siguen pidiendo a mano. KONBUD sale a pedirlas, las persigue y las ordena.
+- Trabaja con los proveedores propios de la constructora: el proveedor no tiene que registrarse en ninguna plataforma, responde a un email.
+- Nunca hace envíos masivos: solo escribe a los proveedores y partidas que la constructora elige.
+
+## Datos de uso real
+
+- Prueba en obra real: 430 partidas, 552 peticiones de precio enviadas, 460 respuestas de proveedores recibidas.
+
+## Precios
+
+- Starter: 199 €/mes · Pro: 399 €/mes · Business: 799 €/mes.
+- Prueba gratuita de 30 días en una obra real, con el presupuesto del propio cliente y puesta en marcha en menos de 48 horas.
+
+## Enlaces
+
+- [Web](https://www.konbud.net/)
+- [Prueba gratuita](https://www.konbud.net/#prueba)
+- [Preguntas frecuentes](https://www.konbud.net/#preguntas)
+- [Blog](https://www.konbud.net/blog/)
+- Contacto: santiago@konbud.net
