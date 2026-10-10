@@ -346,7 +346,7 @@ function initAdapt() {
 // ─── PRICING REVEALS ─────────────────────────────────────────────────────────
 
 function initPricing() {
-  ScrollTrigger.batch('.pricing-card', {
+  ScrollTrigger.batch('.plan-card', {
     onEnter: (batch) =>
       gsap.from(batch, {
         autoAlpha: 0,
@@ -357,13 +357,6 @@ function initPricing() {
       }),
     start: 'top 88%',
     once: true,
-  });
-
-  gsap.from('.pricing-footer', {
-    autoAlpha: 0,
-    y: 14,
-    duration: 0.55,
-    scrollTrigger: { trigger: '.pricing-footer', start: 'top 90%', once: true },
   });
 }
 

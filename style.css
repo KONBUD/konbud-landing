@@ -1153,6 +1153,60 @@ footer {
 
 .pricing-note.muted { opacity: 0.7; }
 
+/* Precio sin cifras: 2 tarjetas (gratis primero → precio según volumen) */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.plan-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.25s;
+}
+
+.plan-card:hover { border-color: var(--border-strong); }
+
+.plan-card--featured {
+  border-color: var(--orange-border);
+  background: rgba(249,115,22,0.04);
+  box-shadow: 0 0 40px rgba(249,115,22,0.08);
+}
+
+.plan-card--featured:hover { border-color: var(--orange); }
+
+.plan-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.plan-card--featured .plan-tag { color: var(--orange); }
+
+.plan-card h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+
+.plan-lead {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* ─── SE ADAPTA — MOLDEABLE POR CONFIG ────────────────────────────────────── */
 
 .adapt-enemy {
@@ -1806,6 +1860,7 @@ footer {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .ring-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+  .plan-grid { grid-template-columns: 1fr; max-width: 480px; }
   .kon-layout { grid-template-columns: 1fr; gap: 48px; }
   .kon-figure { width: 180px; margin-bottom: 32px; }
   .kon-chat { max-width: 520px; }
